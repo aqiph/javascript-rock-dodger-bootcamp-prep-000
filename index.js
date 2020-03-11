@@ -21,17 +21,28 @@ var gameInterval = null;
 // checkCollision
 function checkCollision(rock) {
 
+<<<<<<< HEAD
   const top = positionToInteger(rock.style.top); //rock top
+=======
+  const top = positionToInteger(rock.style.top) //rock top
+>>>>>>> c09eeae184c0af7fcbebe3295a132c18982898cf
   
   // rocks are 20px high
   // DODGER is 20px high
   // GAME_HEIGHT - 20 - 20 = 360px;
   if (top > 360) {
     
+<<<<<<< HEAD
     const dodgerLeftEdge = positionToInteger(DODGER.style.left);
     // The DODGER is 40 pixels wide
     const dodgerRightEdge = 40 + dodgerLeftEdge;
     const rockLeftEdge = positionToInteger(rock.style.left);
+=======
+    const dodgerLeftEdge = positionToInteger(DODGER.style.left)
+    // The DODGER is 40 pixels wide
+    const dodgerRightEdge = 40 + dodgerLeftEdge;
+    const rockLeftEdge = positionToInteger(rock.style.left)
+>>>>>>> c09eeae184c0af7fcbebe3295a132c18982898cf
     // The rock is 20 pixel's wide
     const rockRightEdge = 20 + rockLeftEdge;
 
@@ -50,6 +61,7 @@ function checkCollision(rock) {
     }
     if ((rockLeftEdge>=dodgerLeftEdge) && (rockRightEdge<=dodgerRightEdge)){
       return true;
+<<<<<<< HEAD
     }
     if ((rockLeftEdge<=dodgerRightEdge) && (rockRightEdge>dodgerRightEdge)){
       return true;
@@ -58,6 +70,16 @@ function checkCollision(rock) {
   }
   else{
     return false;
+=======
+    }
+    if ((rockLeftEdge<=dodgerRightEdge) && (rockRightEdge>dodgerRightEdge)){
+      return true;
+    }
+    return false;
+  }
+  else{
+    return false
+>>>>>>> c09eeae184c0af7fcbebe3295a132c18982898cf
   }
 }
 
@@ -65,6 +87,7 @@ function checkCollision(rock) {
 // createRock
 function createRock(x) {
   // Create rock
+<<<<<<< HEAD
   const rock = document.createElement('div');
   rock.className = 'rock';
   rock.style.left = `${x}px`;
@@ -74,6 +97,17 @@ function createRock(x) {
 
   // Append rock to GAME
   GAME.appendChild(rock);
+=======
+  const rock = document.createElement('div')
+  rock.className = 'rock'
+  rock.style.left = `${x}px`
+  // use var
+  var top = 0
+  rock.style.top = top
+
+  // Append rock to GAME
+  GAME.appendChild(rock)
+>>>>>>> c09eeae184c0af7fcbebe3295a132c18982898cf
   
   // Move rock downwards (2 pixels at a time)
   function moveRock() {
@@ -96,17 +130,29 @@ function createRock(x) {
     else {
       let rockTopEdge = positionToInteger(rock.style.top);
       if (rockTopEdge < 380){
+<<<<<<< HEAD
         rock.style.top = `${rockTopEdge+2}px`;
         window.requestAnimationFrame(moveRock);
       }
       else {
         GAME.removeChild(rock);
+=======
+        rock.style.top = `${rockTopEdge+2}px`
+//        window.requestAnimationFrame(moveRock)
+      }
+      else {
+        GAME.removeChild(rock)
+>>>>>>> c09eeae184c0af7fcbebe3295a132c18982898cf
       }
     }
   }
 
   // Kick off the animation of the rock around here.
+<<<<<<< HEAD
   window.requestAnimationFrame(moveRock);
+=======
+  window.requestAnimationFrame(moveRock)
+>>>>>>> c09eeae184c0af7fcbebe3295a132c18982898cf
 
   // Add the rock to ROCKS so that we can remove all rocks
   // when there's a collision.
@@ -126,8 +172,15 @@ function createRock(x) {
  */
 function endGame() {
   clearInterval(gameInterval);
+<<<<<<< HEAD
   for(let i = 0; i < ROCKS.length; i++){
     ROCKS[i].remove();
+=======
+  for (let i = 0; i < ROCKS.length; i++){
+    console.log(ROCKS[i].parentNode.nodeName);
+    ROCKS[i].parentNode.removeChild(ROCKS[i]);
+    console.log(ROCKS[i].parentNode);
+>>>>>>> c09eeae184c0af7fcbebe3295a132c18982898cf
   }
   window.removeEventListener('keydown', moveDodger);
   alert('YOU LOSE!');

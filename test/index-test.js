@@ -159,6 +159,7 @@ describe('Rock Dodger', () => {
       }
 
       endGame()
+      console.log(spies.length)
 
       for (let i = 0; i < 4; i++) {
 //        console.log(spies[i])
